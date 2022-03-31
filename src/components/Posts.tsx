@@ -15,7 +15,7 @@ const Posts = () => {
     <>
       <h1>POSTS</h1>
       <ul>
-        {data?.map((post: Post) => (
+        {data.map((post: Post) => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>

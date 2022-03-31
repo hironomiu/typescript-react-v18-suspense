@@ -6,18 +6,18 @@ export const fetchProfileData = () => {
 }
 
 const wrapPromise = (promise: Promise<Response>) => {
-  let status = 'pending'
-  // TODO 型
-  let result: any
+  let status: 'pending' | 'success' | 'error' = 'pending'
+  let result: [] = []
+  let error: unknown = null
   let suspender = promise.then(
     async (r: Response) => {
       const data = await r.json()
       status = 'success'
       result = data
     },
-    (error) => {
+    (e) => {
       status = 'error'
-      result = error
+      error = e
     }
   )
 
@@ -26,11 +26,12 @@ const wrapPromise = (promise: Promise<Response>) => {
       if (status === 'pending') {
         throw suspender
       } else if (status === 'error') {
-        throw result
+        throw error
       } else if (status === 'success') {
         return result
       } else {
-        console.log('posts else:', status)
+        const strangeStatus: never = status
+        throw new Error(`${strangeStatus}`)
       }
     },
   }
