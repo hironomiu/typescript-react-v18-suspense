@@ -18,4 +18,7 @@ npm test
 
 ```
 npx create-react-app . --template typescript
+npm install --save-dev msw
+npm install react-router-dom
+npm install --save-dev @types/react-router-dom
 ```
