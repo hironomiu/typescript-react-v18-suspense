@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { fetchProfileData } from '../fetchApi'
+import { fetchPostsData } from '../fetchApi'
 
-const resource = fetchProfileData()
+const resource = fetchPostsData()
 
 // TODO 型（使ってるものだけ定義してる）
 type Post = {
@@ -10,7 +10,7 @@ type Post = {
 }
 
 const Posts = () => {
-  const [data] = useState(() => resource.posts.read())
+  const [data] = useState(() => resource.read())
   return (
     <>
       <h1>POSTS</h1>

@@ -1,8 +1,11 @@
-export const fetchProfileData = () => {
-  let postsPromise = fetchPosts()
-  return {
-    posts: wrapPromise(postsPromise),
-  }
+export const fetchPostsData = () => {
+  const postsPromise = fetchPosts()
+  return wrapPromise(postsPromise)
+}
+
+export const fetchUsersData = () => {
+  const usersPromise = fetchUsers()
+  return wrapPromise(usersPromise)
 }
 
 const wrapPromise = (promise: Promise<Response>) => {
@@ -14,6 +17,7 @@ const wrapPromise = (promise: Promise<Response>) => {
       const data = await r.json()
       status = 'success'
       result = data
+      console.log(data)
     },
     (e) => {
       status = 'error'
@@ -24,10 +28,13 @@ const wrapPromise = (promise: Promise<Response>) => {
   return {
     read() {
       if (status === 'pending') {
+        console.log('pending')
         throw suspender
       } else if (status === 'error') {
         throw error
       } else if (status === 'success') {
+        console.log('success')
+
         return result
       } else {
         const strangeStatus: never = status
@@ -39,4 +46,8 @@ const wrapPromise = (promise: Promise<Response>) => {
 
 const fetchPosts = () => {
   return fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+}
+
+const fetchUsers = () => {
+  return fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
 }

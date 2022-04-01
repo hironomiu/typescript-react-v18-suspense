@@ -3,6 +3,7 @@ import App from '../App'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { BrowserRouter } from 'react-router-dom'
+import '@testing-library/jest-dom'
 
 const handlers = [
   rest.get(
@@ -10,10 +11,12 @@ const handlers = [
     (req, res, ctx) => {
       return res(
         ctx.status(200),
-        ctx.json({
-          id: 1,
-          title: 'dummy title 1',
-        })
+        ctx.json([
+          {
+            id: 1,
+            title: 'dummy title 1',
+          },
+        ])
       )
     }
   ),
@@ -33,10 +36,10 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     )
-    const linkElement = screen.getByText(/POSTS/i)
+    const linkElement = screen.getByText(/Home/i)
     expect(linkElement).toBeInTheDocument()
-    expect(screen.getByText('Loading posts...')).toBeInTheDocument()
-    // expect(await screen.findByText('POSTS')).toBeInTheDocument()
+    expect(await screen.findByText('Loading posts...')).toBeInTheDocument()
+    expect(await screen.findByText('POSTS')).toBeInTheDocument()
     // screen.debug()
   })
 })

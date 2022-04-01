@@ -2,23 +2,32 @@ import { Suspense } from 'react'
 import Posts from './components/Posts'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import TabA from './components/TabA'
+import Users from './components/Users'
+import Home from './components/Home'
 
 const App = () => {
-  const fallback = <h1>Loading posts...</h1>
+  const fallback = <h1>Loading ...</h1>
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />}></Route>
           <Route
-            path="/"
+            path="/posts"
             element={
               <Suspense fallback={fallback}>
                 <Posts />
               </Suspense>
             }
           ></Route>
-          <Route path="/tab-a" element={<TabA />}></Route>
+          <Route
+            path="/users"
+            element={
+              <Suspense fallback={fallback}>
+                <Users />
+              </Suspense>
+            }
+          ></Route>
         </Route>
       </Routes>
     </>
