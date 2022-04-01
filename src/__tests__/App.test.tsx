@@ -4,6 +4,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
 
 const handlers = [
   rest.get(
@@ -36,9 +37,11 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     )
-    const linkElement = screen.getByText(/Home/i)
+    const linkElement = screen.getByText('Home')
     expect(linkElement).toBeInTheDocument()
-    expect(await screen.findByText('Loading posts...')).toBeInTheDocument()
+    userEvent.click(screen.getByTestId('posts-link'))
+    expect(await screen.findByText('Loading ...')).toBeInTheDocument()
+    // TODO error Suspenseを解除できない
     expect(await screen.findByText('POSTS')).toBeInTheDocument()
     // screen.debug()
   })

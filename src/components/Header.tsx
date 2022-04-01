@@ -6,13 +6,13 @@ const Header = () => {
     <header className="flex bg-black text-gray-300 h-16 items-center w-screen">
       <nav className="mx-10 flex ">
         <Link to="/" className="mx-2">
-          <p>Home</p>
+          <p data-testid="home-link">Home</p>
         </Link>
         <Link to="/posts" className="mx-2">
-          <p>Posts</p>
+          <p data-testid="posts-link">Posts</p>
         </Link>
         <Link to="/users" className="mx-2">
-          <p>Users</p>
+          <p data-testid="users-link">Users</p>
         </Link>
       </nav>
     </header>
