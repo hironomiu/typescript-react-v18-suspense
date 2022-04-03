@@ -28,13 +28,10 @@ const wrapPromise = (promise: Promise<Response>) => {
   return {
     read() {
       if (status === 'pending') {
-        console.log('pending')
         throw suspender
       } else if (status === 'error') {
         throw error
       } else if (status === 'success') {
-        console.log('success')
-
         return result
       } else {
         const strangeStatus: never = status

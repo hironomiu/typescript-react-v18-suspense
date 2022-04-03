@@ -6,7 +6,7 @@ import Users from './components/Users'
 import Home from './components/Home'
 
 const App = () => {
-  const fallback = <h1>Loading ...</h1>
+  // const fallback = <h1>Loading ...</h1>
   return (
     <>
       <Routes>
@@ -15,7 +15,7 @@ const App = () => {
           <Route
             path="/posts"
             element={
-              <Suspense fallback={fallback}>
+              <Suspense fallback={<h1>Loading posts ...</h1>}>
                 <Posts />
               </Suspense>
             }
@@ -23,7 +23,7 @@ const App = () => {
           <Route
             path="/users"
             element={
-              <Suspense fallback={fallback}>
+              <Suspense fallback={<h1>Loading users ...</h1>}>
                 <Users />
               </Suspense>
             }
