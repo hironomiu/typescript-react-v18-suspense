@@ -17,7 +17,7 @@ const wrapPromise = (promise: Promise<Response>) => {
       const data = await r.json()
       status = 'success'
       result = data
-      console.log(data)
+      // console.log(data)
     },
     (e) => {
       status = 'error'

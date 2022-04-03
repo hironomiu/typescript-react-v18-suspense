@@ -41,8 +41,8 @@ describe('App', () => {
     expect(linkElement).toBeInTheDocument()
     userEvent.click(screen.getByTestId('posts-link'))
     expect(await screen.findByText('Loading ...')).toBeInTheDocument()
-    // TODO error Suspenseを解除できない
+    // test関連をバージョンアップすることでSuspenseを解除、ただしモックデータではなく実データを読みにいってるので対応が必要
     expect(await screen.findByText('POSTS')).toBeInTheDocument()
-    // screen.debug()
+    screen.debug()
   })
 })
