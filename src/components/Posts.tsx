@@ -12,14 +12,14 @@ type Post = {
 const Posts = () => {
   const [data] = useState(() => resource.read())
   return (
-    <>
-      <h1>POSTS</h1>
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="my-4 text-2xl">POSTS</h1>
       <ul>
         {data.map((post: Post) => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 
