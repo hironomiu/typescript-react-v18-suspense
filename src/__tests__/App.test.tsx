@@ -5,8 +5,8 @@ import { setupServer } from 'msw/node'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils'
 
+// TODO msw を機能させる。現状だと本物にアクセスが行ってる
 const handlers = [
   rest.get(
     'https://jsonplaceholder.typicode.com/posts?_limit=10',
@@ -58,17 +58,19 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     )
+
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByTestId('home-div')).toBeInTheDocument()
     userEvent.click(screen.getByTestId('posts-link'))
     expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
     // test関連をバージョンアップすることでSuspenseを解除、ただしモックデータではなく実データを読みにいってるので対応が必要
     // TODO Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
-    expect(await screen.findByText('POSTS')).toBeInTheDocument()
+    await screen.findByText('POSTS')
+    expect(screen.getByText('POSTS')).toBeInTheDocument()
     userEvent.click(screen.getByTestId('users-link'))
-    // expect(await screen.findByText('USERS')).toBeInTheDocument()
-    // userEvent.click(screen.getByTestId('home-link'))
-    // expect(await screen.findByTestId('home-div')).toBeInTheDocument()
+    expect(await screen.findByText('USERS')).toBeInTheDocument()
+    userEvent.click(screen.getByTestId('home-link'))
+    expect(await screen.findByTestId('home-div')).toBeInTheDocument()
     // screen.debug()
   })
 })
