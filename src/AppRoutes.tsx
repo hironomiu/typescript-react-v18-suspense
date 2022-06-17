@@ -5,6 +5,7 @@ import Layout from './components/Layout'
 import Users from './components/Users'
 import Home from './components/Home'
 import ReactQueryPosts from './components/ReactQueryPosts'
+import ReactQueryUsers from './components/ReactQueryUsers'
 
 const AppRoutes = () => {
   return (
@@ -35,6 +36,7 @@ const AppRoutes = () => {
             </Suspense>
           }
         ></Route>
+        <Route path="react-query-users" element={<ReactQueryUsers />}></Route>
       </Route>
     </Routes>
   )

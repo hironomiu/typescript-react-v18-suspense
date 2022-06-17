@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
@@ -15,7 +14,10 @@ const Header = () => {
           <p data-testid="users-link">Users</p>
         </Link>
         <Link to="/react-query-posts" className="mx-2">
-          <p data-testid="users-link">ReactQueryPosts</p>
+          <p data-testid="react-query-posts-link">ReactQueryPosts</p>
+        </Link>
+        <Link to="/react-query-users" className="mx-2">
+          <p data-testid="react-query-users-link">ReactQueryUsers</p>
         </Link>
       </nav>
     </header>
