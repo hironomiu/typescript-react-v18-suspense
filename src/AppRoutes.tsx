@@ -36,7 +36,14 @@ const AppRoutes = () => {
             </Suspense>
           }
         ></Route>
-        <Route path="react-query-users" element={<ReactQueryUsers />}></Route>
+        <Route
+          path="react-query-users"
+          element={
+            <Suspense fallback={<h1>Loading react query users ...</h1>}>
+              <ReactQueryUsers />
+            </Suspense>
+          }
+        ></Route>
       </Route>
     </Routes>
   )
