@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import { fetchPostsData } from '../fetchApi'
+import { Post } from '../types'
 
 const resource = fetchPostsData()
-
-// TODO 型（使ってるものだけ定義してる）
-type Post = {
-  id: number
-  title: string
-}
 
 const Posts = () => {
   const [data] = useState(() => resource.read())

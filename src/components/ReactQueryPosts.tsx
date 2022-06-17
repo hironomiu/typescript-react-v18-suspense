@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+import { Post } from '../types'
 
 const getPosts = async () => {
   const data = await fetch(
@@ -21,11 +22,11 @@ const ReactQueryPosts = () => {
   const { data } = useQueryPosts()
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <h1 className="m-4 text-2xl">ReactQueryPost</h1>
       <ul>
-        {data.map((d: any) => (
-          <li key={d.id}>{d.title}</li>
+        {data.map((post: Post) => (
+          <li key={post.id}>{post.title}</li>
         ))}
       </ul>
     </div>

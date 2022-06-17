@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import { fetchUsersData } from '../fetchApi'
+import { User } from '../types'
 
 const resource = fetchUsersData()
-type User = {
-  id: number
-  name: string
-  email: string
-}
 
 const Users = () => {
   const [data] = useState(() => resource.read())

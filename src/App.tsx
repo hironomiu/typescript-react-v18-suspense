@@ -12,7 +12,6 @@ const queryClient = new QueryClient({
   },
 })
 const App = () => {
-  // const fallback = <h1>Loading ...</h1>
   return (
     <>
       <QueryClientProvider client={queryClient}>
