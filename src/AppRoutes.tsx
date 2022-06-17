@@ -27,7 +27,14 @@ const AppRoutes = () => {
             </Suspense>
           }
         ></Route>
-        <Route path="react-query-posts" element={<ReactQueryPosts />}></Route>
+        <Route
+          path="react-query-posts"
+          element={
+            <Suspense fallback={<h1>Loading react query posts ...</h1>}>
+              <ReactQueryPosts />
+            </Suspense>
+          }
+        ></Route>
       </Route>
     </Routes>
   )

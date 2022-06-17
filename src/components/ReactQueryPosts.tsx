@@ -1,4 +1,3 @@
-import React from 'react'
 import { useQuery } from 'react-query'
 
 const getPosts = async () => {
@@ -19,11 +18,7 @@ const useQueryPosts = () => {
 }
 
 const ReactQueryPosts = () => {
-  const { status, data } = useQueryPosts()
-
-  // TODO: Suspenceに対応させる
-  if (status === 'loading') return <div>loading..</div>
-  if (status === 'error') return <div>error</div>
+  const { data } = useQueryPosts()
 
   return (
     <div>
