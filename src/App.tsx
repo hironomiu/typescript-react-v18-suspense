@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import AppRoutes from './AppRoutes'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -16,7 +17,9 @@ const App = () => {
     <>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          {/* <Suspense fallback={<h1>Loading something...</h1>}> */}
           <AppRoutes />
+          {/* </Suspense> */}
         </BrowserRouter>
       </QueryClientProvider>
     </>

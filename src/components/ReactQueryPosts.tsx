@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { useQuery } from 'react-query'
 import { Post } from '../types'
 
