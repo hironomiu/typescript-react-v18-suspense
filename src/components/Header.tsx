@@ -14,6 +14,9 @@ const Header = () => {
         <Link to="/users" className="mx-2">
           <p data-testid="users-link">Users</p>
         </Link>
+        <Link to="/react-query-posts" className="mx-2">
+          <p data-testid="users-link">ReactQueryPosts</p>
+        </Link>
       </nav>
     </header>
   )

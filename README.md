@@ -2,6 +2,12 @@
 
 React v18 での Suspense での data fetching の利用サンプル
 
+## SetUp
+
+```
+npm install
+```
+
 ## Run
 
 ```
@@ -35,4 +41,10 @@ React v18 に対応させるためバージョンアップさせる
 npm install --save-dev @testing-library/react@latest
 npm install --save-dev @testing-library/jest-dom@latest
 npm install --save-dev @testing-library/user-event@latest
+```
+
+### React Query
+
+```
+npm install react-query
 ```
