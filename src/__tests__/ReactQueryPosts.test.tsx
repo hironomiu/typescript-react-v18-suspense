@@ -18,9 +18,9 @@ describe('ReactQueryPost', () => {
   it('test', async () => {
     render(
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <ReactQueryPosts />
-        </BrowserRouter>
+        {/* <BrowserRouter> */}
+        <ReactQueryPosts />
+        {/* </BrowserRouter> */}
       </QueryClientProvider>
     )
     expect(await screen.findByText('ReactQueryPost')).toBeInTheDocument()
