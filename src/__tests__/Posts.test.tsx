@@ -45,7 +45,7 @@ describe('Posts', () => {
       </BrowserRouter>
     )
     expect(screen.getByText('loading')).toBeInTheDocument()
-    // await screen.findByText('POSTS')
+    expect(await screen.findByText('POSTS')).toBeInTheDocument()
     // expect(screen.getByText('POSTS')).toBeInTheDocument()
     // screen.debug()
   })
