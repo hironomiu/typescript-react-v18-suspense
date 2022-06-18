@@ -1,5 +1,7 @@
 # typescript-react-v18-suspense
 
+[![Node.js CI](https://github.com/hironomiu/typescript-react-v18-suspense/actions/workflows/node.js.yml/badge.svg)](https://github.com/hironomiu/typescript-react-v18-suspense/actions/workflows/node.js.yml)
+
 React v18 での Suspense での data fetching の利用サンプル
 
 ## SetUp
