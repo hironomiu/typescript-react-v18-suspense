@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
 import ReactQueryPosts from '../components/ReactQueryPosts'
 
 const queryClient = new QueryClient({

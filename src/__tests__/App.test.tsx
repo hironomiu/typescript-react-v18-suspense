@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import App from '../App'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
+import { act } from 'react-dom/test-utils'
 
 // TODO msw を機能させる。現状だと本物にアクセスが行ってる
 const handlers = [
@@ -51,10 +52,13 @@ describe('App', () => {
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByTestId('home-div')).toBeInTheDocument()
     userEvent.click(screen.getByTestId('posts-link'))
-    expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
     // test関連をバージョンアップすることでSuspenseを解除、ただしモックデータではなく実データを読みにいってるので対応が必要
-    // TODO Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
-    await screen.findByText('POSTS')
+    // MEMO: Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+    expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
+    await act(async () => {
+      expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
+    })
+    expect(await screen.findByText('POSTS')).toBeInTheDocument()
     expect(screen.getByText('POSTS')).toBeInTheDocument()
     userEvent.click(screen.getByTestId('users-link'))
     expect(await screen.findByText('USERS')).toBeInTheDocument()
