@@ -1,10 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import App from '../App'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils'
 
 // TODO msw を機能させる。現状だと本物にアクセスが行ってる
 const handlers = [

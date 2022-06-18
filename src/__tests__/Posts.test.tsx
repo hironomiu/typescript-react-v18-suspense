@@ -38,11 +38,11 @@ afterAll(() => {
 describe('Posts', () => {
   it('Posts', async () => {
     render(
-      <BrowserRouter>
-        <Suspense fallback={<div>loading</div>}>
-          <Posts />
-        </Suspense>
-      </BrowserRouter>
+      // <BrowserRouter>
+      //   <Suspense fallback={<div>loading</div>}>
+      <Posts />
+      //   </Suspense>
+      // </BrowserRouter>
     )
     await screen.findByText('POSTS')
     expect(screen.getByText('POSTS')).toBeInTheDocument()
