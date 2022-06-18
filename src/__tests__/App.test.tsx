@@ -2,46 +2,39 @@ import { render, screen } from '@testing-library/react'
 import App from '../App'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
 // TODO msw を機能させる。現状だと本物にアクセスが行ってる
 const handlers = [
-  rest.get(
-    'https://jsonplaceholder.typicode.com/posts?_limit=10',
-    (req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json([
-          {
-            id: 1,
-            title: 'dummy title 1',
-          },
-        ])
-      )
-    }
-  ),
-  rest.get(
-    'https://jsonplaceholder.typicode.com/users?_limit=10',
-    (req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json([
-          {
-            id: 1,
-            name: 'dummy name 1',
-            email: 'dummy1@dummy1.com',
-          },
-          {
-            id: 2,
-            name: 'dummy name 2',
-            email: 'dummy2@dummy2.com',
-          },
-        ])
-      )
-    }
-  ),
+  rest.get('https://jsonplaceholder.typicode.com/posts', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: 1,
+          title: 'dummy title 1',
+        },
+      ])
+    )
+  }),
+  rest.get('https://jsonplaceholder.typicode.com/users', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: 1,
+          name: 'dummy name 1',
+          email: 'dummy1@dummy1.com',
+        },
+        {
+          id: 2,
+          name: 'dummy name 2',
+          email: 'dummy2@dummy2.com',
+        },
+      ])
+    )
+  }),
 ]
 
 const server = setupServer(...handlers)
@@ -53,11 +46,7 @@ beforeAll(() => {
 // TODO msw
 describe('App', () => {
   it('App', async () => {
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
+    render(<App />)
 
     expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByTestId('home-div')).toBeInTheDocument()
