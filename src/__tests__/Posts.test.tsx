@@ -16,16 +16,19 @@ const handlers = [
           id: 1,
           title: 'dummy title 1',
         },
+        {
+          id: 2,
+          title: 'dummy title 2',
+        },
       ])
     )
   }),
 ]
 
 const server = setupServer(...handlers)
+server.listen()
 
-beforeAll(() => {
-  server.listen()
-})
+beforeAll(() => {})
 
 afterEach(() => {
   server.resetHandlers()
@@ -45,7 +48,7 @@ describe('Posts', () => {
       </BrowserRouter>
     )
     expect(screen.getByText('loading')).toBeInTheDocument()
-    expect(await screen.findByText('POSTS')).toBeInTheDocument()
+    // expect(await screen.findByText('POSTS')).toBeInTheDocument()
     // expect(screen.getByText('POSTS')).toBeInTheDocument()
     // screen.debug()
   })
