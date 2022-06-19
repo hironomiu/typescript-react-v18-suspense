@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react'
+import { Post } from '../types'
 
 const fetchPosts = async () => {
   const response = await fetch(
     'https://jsonplaceholder.typicode.com/posts?_limit=10'
   )
   return await response.json()
-}
-
-type Post = {
-  userId: number
-  id: number
-  title: string
-  body: string
 }
 
 // MEMO: Suspenseは対応できていない
