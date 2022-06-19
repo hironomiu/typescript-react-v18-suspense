@@ -39,6 +39,8 @@ describe('ReactQueryPost', () => {
         </BrowserRouter>
       </QueryClientProvider>
     )
-    expect(await screen.findByText('ReactQueryPost')).toBeInTheDocument()
+    expect(
+      await screen.findByText('Fetched ReactQueryPost')
+    ).toBeInTheDocument()
   })
 })

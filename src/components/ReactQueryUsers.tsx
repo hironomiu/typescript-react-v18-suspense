@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import { User } from '../types'
 
 const getUsers = async () => {
   const data = await fetch(
@@ -23,9 +24,9 @@ const ReactQueryUsers = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="m-4 text-2xl">ReactQueryUsers</h1>
+      <h1 className="m-4 text-2xl">Fetched ReactQueryUsers</h1>
       <ul>
-        {data.map((user: any) => (
+        {data.map((user: User) => (
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>

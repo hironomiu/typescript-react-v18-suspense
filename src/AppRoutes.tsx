@@ -7,12 +7,13 @@ import Home from './components/Home'
 import ReactQueryPosts from './components/ReactQueryPosts'
 import ReactQueryUsers from './components/ReactQueryUsers'
 import NormalFetchPosts from './components/NormalFetchPosts'
+import NormalFetchUsers from './components/NormalFetchUsers'
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home />} />
         <Route
           path="/posts"
           element={
@@ -20,7 +21,7 @@ const AppRoutes = () => {
               <Posts />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="/users"
           element={
@@ -28,7 +29,7 @@ const AppRoutes = () => {
               <Users />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="react-query-posts"
           element={
@@ -36,7 +37,7 @@ const AppRoutes = () => {
               <ReactQueryPosts />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="react-query-users"
           element={
@@ -44,7 +45,7 @@ const AppRoutes = () => {
               <ReactQueryUsers />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="normal-fetch-posts"
           element={
@@ -52,7 +53,15 @@ const AppRoutes = () => {
               <NormalFetchPosts />
             </Suspense>
           }
-        ></Route>
+        />
+        <Route
+          path="normal-fetch-users"
+          element={
+            <Suspense fallback={<h1>Loading nomal fetch users ...</h1>}>
+              <NormalFetchUsers />
+            </Suspense>
+          }
+        />
       </Route>
     </Routes>
   )

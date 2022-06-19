@@ -2,7 +2,7 @@
 
 [![Node.js CI](https://github.com/hironomiu/typescript-react-v18-suspense/actions/workflows/node.js.yml/badge.svg)](https://github.com/hironomiu/typescript-react-v18-suspense/actions/workflows/node.js.yml)
 
-React v18 での Suspense での data fetching の利用サンプル
+React v18 での Suspense を絡めた data fetching 周りの実装とテストのサンプル
 
 ## SetUp
 
@@ -21,6 +21,10 @@ npm start
 ```
 npm test
 ```
+
+## Memo
+
+[JSONPlaceholder:データの取得先](https://jsonplaceholder.typicode.com/)
 
 ## Install Memo
 

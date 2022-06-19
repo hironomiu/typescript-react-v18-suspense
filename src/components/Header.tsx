@@ -22,6 +22,9 @@ const Header = () => {
         <Link to="/normal-fetch-posts" className="mx-2">
           <p data-testid="normal-fetch-posts-link">NormalFetchPosts</p>
         </Link>
+        <Link to="/normal-fetch-users" className="mx-2">
+          <p data-testid="normal-fetch-users-link">NormalFetchUsers</p>
+        </Link>
       </nav>
     </header>
   )

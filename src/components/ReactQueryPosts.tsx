@@ -23,7 +23,7 @@ const ReactQueryPosts = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="m-4 text-2xl">ReactQueryPost</h1>
+      <h1 className="m-4 text-2xl">Fetched ReactQueryPost</h1>
       <ul>
         {data.map((post: Post) => (
           <li key={post.id}>{post.title}</li>
