@@ -48,6 +48,8 @@ describe('Posts', () => {
       </BrowserRouter>
     )
     expect(screen.getByText('loading')).toBeInTheDocument()
+    // TODO:  Error: TypeError: Cannot read property '_location' of null
+    // at Object.dispatchError (/home/runner/work/typescript-react-v18-suspense/typescript-react-v18-suspense/node_modules/jsdom/lib/jsdom/living/xhr/xhr-utils.js:63:19)
     // expect(await screen.findByText('POSTS')).toBeInTheDocument()
     // expect(screen.getByText('POSTS')).toBeInTheDocument()
     // screen.debug()
