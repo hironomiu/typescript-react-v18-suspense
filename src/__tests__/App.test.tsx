@@ -32,6 +32,14 @@ describe('App', () => {
     expect(
       await screen.findByText('Fetched ReactQueryPost')
     ).toBeInTheDocument()
+    expect(screen.getByText('dummy title 1')).toBeInTheDocument()
+    expect(screen.getByText('dummy title 2')).toBeInTheDocument()
+    userEvent.click(screen.getByTestId('react-query-users-link'))
+    expect(
+      screen.getByText('Loading react query users ...')
+    ).toBeInTheDocument()
+    expect(await screen.findByText('John')).toBeInTheDocument()
+    expect(screen.getByText('Taro')).toBeInTheDocument()
     // test関連をバージョンアップすることでSuspenseを解除、ただしモックデータではなく実データを読みにいってるので対応が必要
     // MEMO: Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
     // expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
