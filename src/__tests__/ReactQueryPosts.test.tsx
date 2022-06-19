@@ -35,7 +35,18 @@ const handlers = [
 ]
 
 const server = setupServer(...handlers)
-server.listen()
+
+beforeAll(() => {
+  server.listen()
+})
+
+afterEach(() => {
+  server.resetHandlers()
+})
+
+afterAll(() => {
+  server.close()
+})
 
 // TODO: 追記
 describe('ReactQueryPost', () => {
