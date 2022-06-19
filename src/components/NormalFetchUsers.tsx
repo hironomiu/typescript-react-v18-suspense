@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { User } from '../types'
 
-const fetchUsers = async () => {
+const gethUsers = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users')
   return await response.json()
 }
@@ -10,7 +10,7 @@ const NormalFetchUsers = () => {
   const [users, setUsers] = useState<User[]>([])
   useEffect(() => {
     ;(async () => {
-      const json = await fetchUsers()
+      const json = await gethUsers()
       setUsers(json)
     })()
   }, [])
