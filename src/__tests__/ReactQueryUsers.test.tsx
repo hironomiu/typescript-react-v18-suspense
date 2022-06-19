@@ -30,5 +30,7 @@ describe('ReactQueryUsers', () => {
     expect(
       await screen.findByText('Fetched ReactQueryUsers')
     ).toBeInTheDocument()
+    expect(screen.getByText('John')).toBeInTheDocument()
+    expect(screen.getByText('Taro')).toBeInTheDocument()
   })
 })

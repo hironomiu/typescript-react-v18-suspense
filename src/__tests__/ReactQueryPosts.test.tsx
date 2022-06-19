@@ -46,5 +46,7 @@ describe('ReactQueryPost', () => {
     expect(
       await screen.findByText('Fetched ReactQueryPost')
     ).toBeInTheDocument()
+    expect(screen.getByText('dummy title 1')).toBeInTheDocument()
+    expect(screen.getByText('dummy title 2')).toBeInTheDocument()
   })
 })
