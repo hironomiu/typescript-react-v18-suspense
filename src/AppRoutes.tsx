@@ -6,6 +6,7 @@ import Users from './components/Users'
 import Home from './components/Home'
 import ReactQueryPosts from './components/ReactQueryPosts'
 import ReactQueryUsers from './components/ReactQueryUsers'
+import NormalFetchPosts from './components/NormalFetchPosts'
 
 const AppRoutes = () => {
   return (
@@ -41,6 +42,14 @@ const AppRoutes = () => {
           element={
             <Suspense fallback={<h1>Loading react query users ...</h1>}>
               <ReactQueryUsers />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="normal-fetch-posts"
+          element={
+            <Suspense fallback={<h1>Loading nomal fetch posts ...</h1>}>
+              <NormalFetchPosts />
             </Suspense>
           }
         ></Route>
