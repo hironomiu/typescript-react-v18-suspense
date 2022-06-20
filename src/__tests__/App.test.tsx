@@ -18,7 +18,6 @@ afterAll(() => {
   server.close()
 })
 
-// TODO msw
 describe('App', () => {
   it('App', async () => {
     render(<App />)
@@ -40,9 +39,16 @@ describe('App', () => {
     ).toBeInTheDocument()
     expect(await screen.findByText('John')).toBeInTheDocument()
     expect(screen.getByText('Taro')).toBeInTheDocument()
+
+    userEvent.click(screen.getByTestId('normal-fetch-posts-link'))
+    // MEMO: Suspenceの対応ができていないため`Fetched NormalFetchPosts`が表示される
+    expect(screen.getByText('Fetched NormalFetchPosts')).toBeInTheDocument()
+    expect(await screen.findByText('dummy title 1')).toBeInTheDocument()
+    expect(screen.getByText('dummy title 2')).toBeInTheDocument()
+    // MEMO: Homeに戻る
     userEvent.click(screen.getByTestId('home-link'))
     expect(await screen.findByTestId('home-div')).toBeInTheDocument()
-    // test関連をバージョンアップすることでSuspenseを解除、ただしモックデータではなく実データを読みにいってるので対応が必要
+
     // MEMO: Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
     // expect(await screen.findByText('Loading posts ...')).toBeInTheDocument()
     // await act(async () => {

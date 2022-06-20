@@ -20,6 +20,14 @@ beforeAll(() => {
   server.listen()
 })
 
+afterEach(() => {
+  server.resetHandlers()
+})
+
+afterAll(() => {
+  server.close()
+})
+
 describe('ReactQueryUsers', () => {
   it('test', async () => {
     render(
