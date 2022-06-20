@@ -23,6 +23,14 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.getByText('Home')).toBeInTheDocument()
+
+    // MEMO: counterのテスト
+    expect(screen.getByTestId('count-span').textContent).toBe('0')
+    userEvent.click(screen.getByRole('button', { name: '+' }))
+    expect(screen.getByTestId('count-span').textContent).toBe('1')
+    userEvent.click(screen.getByRole('button', { name: '-' }))
+    expect(screen.getByTestId('count-span').textContent).toBe('0')
+
     expect(screen.getByTestId('home-div')).toBeInTheDocument()
     userEvent.click(screen.getByTestId('react-query-posts-link'))
     expect(

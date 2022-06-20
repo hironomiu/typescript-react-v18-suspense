@@ -19,7 +19,9 @@ const ChildComponent: React.FC<Props> = ({ count, setCount }) => {
         <button onClick={handleIncrement} className="text-xl">
           +
         </button>
-        <span className="mx-4">{count}</span>
+        <span className="mx-4" data-testid="count-span">
+          {count}
+        </span>
         <button onClick={handleDecrement} className="text-xl">
           -
         </button>
