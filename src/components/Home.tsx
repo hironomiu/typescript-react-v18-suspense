@@ -5,8 +5,11 @@ const Home = () => {
   const [count, setCount] = useState<number>(0)
 
   return (
-    <div data-testid="home-div">
-      <h1>Home Page</h1>
+    <div
+      data-testid="home-div"
+      className="flex flex-col justify-center items-center"
+    >
+      <h1 className="text-2xl">Home Page</h1>
       <ChildComponent count={count} setCount={setCount} />
     </div>
   )
