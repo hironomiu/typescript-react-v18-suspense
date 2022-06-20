@@ -17,6 +17,17 @@ export const handlers = [
       ])
     )
   }),
+  rest.post('https://jsonplaceholder.typicode.com/posts', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        id: 101,
+        userId: 1,
+        title: 'foo',
+        body: 'bar',
+      })
+    )
+  }),
   rest.get('https://jsonplaceholder.typicode.com/users', (req, res, ctx) => {
     return res(
       ctx.status(200),

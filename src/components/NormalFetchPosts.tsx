@@ -42,7 +42,11 @@ const NormalFetchPosts = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="m-4 text-2xl">Fetched NormalFetchPosts</h1>
-      <button onClick={handlePostClick} className="">
+      <button
+        onClick={handlePostClick}
+        className=""
+        data-testid="post-posts-button"
+      >
         DATA POST
       </button>
       <ul>
