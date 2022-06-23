@@ -53,6 +53,7 @@ describe('App', () => {
     expect(screen.getByText('Fetched NormalFetchPosts')).toBeInTheDocument()
     expect(await screen.findByText('dummy title 1')).toBeInTheDocument()
     expect(screen.getByText('dummy title 2')).toBeInTheDocument()
+
     // MEMO: Homeに戻る
     userEvent.click(screen.getByTestId('home-link'))
     expect(await screen.findByTestId('home-div')).toBeInTheDocument()
