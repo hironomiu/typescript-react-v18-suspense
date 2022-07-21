@@ -44,3 +44,10 @@ npm install --save-dev @types/react-router-dom
 ```
 npm install react-query
 ```
+
+### react-icons
+
+```
+npm install react-icons
+npm install --save-dev @types/react-icons
+```
