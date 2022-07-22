@@ -69,32 +69,40 @@ const Header = () => {
         <ul className="p-4 text-black">
           <li className="ml-2">
             <Link onClick={handleNav} to="/posts" className="mx-2">
-              <p data-testid="posts-link">Posts</p>
+              <p data-testid="side-posts-link">to Posts</p>
             </Link>
           </li>
           <li className="ml-2">
             <Link onClick={handleNav} to="/users" className="mx-2">
-              <p data-testid="users-link">Users</p>
+              <p data-testid="side-users-link">to Users</p>
             </Link>
           </li>
           <li className="ml-2">
             <Link onClick={handleNav} to="/react-query-posts" className="mx-2">
-              <p data-testid="react-query-posts-link">ReactQueryPosts</p>
+              <p data-testid="side-react-query-posts-link">
+                to ReactQueryPosts
+              </p>
             </Link>
           </li>
           <li className="ml-2">
             <Link onClick={handleNav} to="/react-query-users" className="mx-2">
-              <p data-testid="react-query-users-link">ReactQueryUsers</p>
+              <p data-testid="side-react-query-users-link">
+                to ReactQueryUsers
+              </p>
             </Link>
           </li>
           <li className="ml-2">
             <Link onClick={handleNav} to="/normal-fetch-posts" className="mx-2">
-              <p data-testid="normal-fetch-posts-link">NormalFetchPosts</p>
+              <p data-testid="side-normal-fetch-posts-link">
+                to NormalFetchPosts
+              </p>
             </Link>
           </li>
           <li className="ml-2">
             <Link onClick={handleNav} to="/normal-fetch-users" className="mx-2">
-              <p data-testid="normal-fetch-users-link">NormalFetchUsers</p>
+              <p data-testid="side-normal-fetch-users-link">
+                to NormalFetchUsers
+              </p>
             </Link>
           </li>
         </ul>
